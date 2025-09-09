@@ -24,10 +24,8 @@ const skills = [
 
 export default function Home() {
   return (
-    // SECTION PRINCIPALE : Conteneur "full-screen" qui s'adapte
     <section className="flex min-h-[calc(100vh-88px)] flex-col items-center justify-center p-4 md:flex-row md:space-x-12">
       
-      {/* COLONNE DE GAUCHE : Texte de présentation (Héros) */}
       <div className="w-full max-w-xl text-center md:w-1/2 md:text-left">
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl lg:text-6xl">
           Bonjour, je suis{' '}
