@@ -33,30 +33,32 @@ export default function Header() {
         className="relative flex h-6 w-6 items-center justify-center"
       >
         <span className="sr-only">Changer de thème</span>
-        <Sun className={`absolute transition-all duration-300 ${ theme === 'light' ? 'rotate-0 scale-100' : '-rotate-90 scale-0' }`} />
-        <Moon className={`absolute transition-all duration-300 ${ theme === 'dark' ? 'rotate-0 scale-100' : 'rotate-90 scale-0' }`} />
+        <Sun className={`absolute transition-all duration-500 ${ theme === 'light' ? 'rotate-0 scale-100' : '-rotate-90 scale-0' }`} />
+        <Moon className={`absolute transition-all duration-500 ${ theme === 'dark' ? 'rotate-0 scale-100' : 'rotate-90 scale-0' }`} />
       </button>
     )
   }
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-card-light/80 text-foreground-light shadow-md backdrop-blur-lg transition-colors duration-300 dark:bg-card-dark/80 dark:text-foreground-dark">
-        <nav className="container mx-auto grid h-20 grid-cols-3 items-center px-4">
-          <div className="justify-self-start">
+      <header className="sticky top-0 z-50 bg-card-light/80 text-foreground-light shadow-md backdrop-blur-lg transition-colors duration-500 dark:bg-card-dark/80 dark:text-foreground-dark">
+        <nav className="container mx-auto flex h-20 items-center justify-between px-4 md:grid md:grid-cols-3">
+          <div className="justify-self-start md:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold transition-colors hover:text-primary">
               <UserCircle2 size={28} />
-              <span>{process.env.NEXT_PUBLIC_AUTHOR_NAME}</span>
+              <span className="sr-only sm:not-sr-only">
+                {process.env.NEXT_PUBLIC_AUTHOR_NAME}
+              </span>
             </Link>
           </div>
-          <div className="hidden justify-self-center md:flex md:gap-8">
+          <div className="hidden justify-self-center md:flex md:gap-8 md:col-span-1">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors ${ pathname === link.href ? 'text-primary' : 'hover:text-primary' }`}>
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="flex items-center justify-self-end">
+          <div className="flex items-center justify-end md:justify-self-end md:col-span-1">
             <div className="flex items-center gap-4">
               <button>🇫🇷</button>
               {renderThemeChanger()}
@@ -67,7 +69,13 @@ export default function Header() {
           </div>
         </nav>
       </header>
-      <div className={`fixed inset-0 z-[100] transform bg-background-dark transition-transform duration-300 md:hidden ${ isMenuOpen ? 'translate-x-0' : 'translate-x-full' }`}>
+
+      {/* Le menu mobile (overlay) avec les couleurs corrigées */}
+      <div
+        className={`fixed inset-0 z-[100] transform bg-background-light text-foreground-light transition-transform duration-300 dark:bg-background-dark dark:text-foreground-dark md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
         <div className="flex justify-end p-4">
           <button onClick={() => setIsMenuOpen(false)} aria-label="Fermer le menu">
             <X size={28} />
