@@ -14,7 +14,7 @@ const skills = [
 
 export default function Home() {
   return (
-    <section className="flex min-h-[calc(100vh-160px)] flex-col items-center justify-center p-4 md:flex-row md:space-x-12">
+    <section className="flex w-full flex-col items-center justify-center md:flex-row md:space-x-12">
       {/* Colonne de Gauche : Texte de présentation */}
       <div className="w-full max-w-xl text-center md:text-left">
         <h1 className="text-4xl font-bold tracking-tight text-foreground-light dark:text-foreground-dark sm:text-5xl lg:text-6xl">

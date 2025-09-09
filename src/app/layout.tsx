@@ -15,19 +15,21 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.Node
+  children: React.ReactNode
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-background-light text-foreground-light dark:bg-background-dark dark:text-foreground-dark antialiased transition-colors duration-300`}
+        className={`${inter.className} bg-background-light text-foreground-light dark:bg-background-dark dark:text-foreground-dark antialiased`}
       >
         <Providers>
-          <Header />
-          <main className="container mx-auto min-h-screen px-4 py-8">
-            {children}
-          </main>
-          <Footer />
+          <div className="flex min-h-screen flex-col transition-colors duration-500">
+            <Header />
+            <main className="container mx-auto flex flex-grow px-4 py-8">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
