@@ -19,15 +19,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className="dark"> {/* On met 'dark' par défaut */}
+    <html lang="fr" className="dark">
       <body
         className={`${inter.className} bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased`}
       >
-        <Header /> {/* <--- 3. Placer le Header ici */}
+        <Header />
         <main className="container mx-auto px-4 py-8">
-            {children} {/* Le contenu de la page viendra ici */}
+            {children}
         </main>
-        <Footer /> {/* <--- 4. Placer le Footer ici */}
+        <Footer />
       </body>
     </html>
   )
