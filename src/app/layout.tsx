@@ -9,7 +9,7 @@ import Footer from '@/components/Footer' // <--- 2. Importer le Footer
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portfolio de [Votre Nom]', // Pensez à changer ça
+  title: 'Paul DAM QUANG THANH', // Pensez à changer ça
   description: 'Développeur passionné par le Cloud et le Web', // et ça
 }
 
