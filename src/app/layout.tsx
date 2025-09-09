@@ -1,24 +1,32 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Providers } from './Providers'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Providers } from './Providers' // <-- Importer
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Paul DAM QUANG THANH',
-  description: 'Développeur passionné par le Cloud et le Web',
+  title: 'Portfolio de Paul DAM QUANG THANH',
+  description: 'Développeur passionné par le Cloud et le Web.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.Node
+}>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body>
+      <body
+        className={`${inter.className} bg-background-light text-foreground-light dark:bg-background-dark dark:text-foreground-dark antialiased transition-colors duration-300`}
+      >
         <Providers>
           <Header />
-          <main className="container mx-auto px-4 py-8">{children}</main>
+          <main className="container mx-auto min-h-screen px-4 py-8">
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>
