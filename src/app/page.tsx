@@ -24,6 +24,7 @@ const skills = [
 
 export default function Home() {
   return (
+
     <section className="flex min-h-[calc(100vh-88px)] flex-col items-center justify-center p-4 md:flex-row md:space-x-12">
       
       <div className="w-full max-w-xl text-center md:w-1/2 md:text-left">
