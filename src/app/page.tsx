@@ -1,20 +1,34 @@
 import Link from 'next/link'
-import { Code, Cloud, Server, Github, Linkedin, Layers, Zap } from 'lucide-react'
+import { Layers, Zap, Cloud, Github, Linkedin } from 'lucide-react'
 import SkillCard from '@/components/SkillCard'
 
-
+// On réintroduit les compétences
 const skills = [
   {
     icon: Cloud,
-    title: 'Expertise Google Cloud Platform (GCP)',
+    title: 'Expertise Google Cloud (GCP)',
     description:
       'Conception et déploiement de solutions sur GKE, Cloud Run, BigQuery, et gestion des services IAM et Networking.',
+  },
+  {
+    icon: Layers,
+    title: 'Infrastructure as Code & Conteneurs',
+    description:
+      "Déploiement d'environnements reproductibles et scalables avec Terraform, Docker et Kubernetes.",
+  },
+  {
+    icon: Zap,
+    title: 'Automatisation CI/CD & Observabilité',
+    description:
+      'Création de pipelines de déploiement continu (Cloud Build, GitLab CI) et monitoring avec Prometheus & Grafana.',
   },
 ]
 
 export default function Home() {
   return (
-    <section className="flex w-full flex-col items-center justify-center md:flex-row md:space-x-12">
+    // Le conteneur principal qui gère toute la mise en page
+    <section className="flex h-full w-full flex-col items-center justify-center gap-12 md:flex-row">
+      
       {/* Colonne de Gauche : Texte de présentation */}
       <div className="w-full max-w-xl text-center md:text-left">
         <h1 className="text-4xl font-bold tracking-tight text-foreground-light dark:text-foreground-dark sm:text-5xl lg:text-6xl">
@@ -24,27 +38,37 @@ export default function Home() {
           </span>
         </h1>
         <p className="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-          Passionné par le cloud computing, je partage mes projets et mes connaissances au global.
+          Passionné par le cloud computing, je partage mes projets et ma
+          connaissance sur GCP.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6 md:justify-start">
           <Link
             href="/projets"
             className="rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-105"
           >
-            Portfolio
+            Voir mes projets
           </Link>
           <div className="flex gap-x-4">
-            <Link href="#" target="_blank" className="text-slate-500 transition-colors hover:text-primary">
+            <Link
+              href="https://github.com/Purimidiaru"
+              target="_blank"
+              className="text-slate-500 transition-colors hover:text-primary"
+            >
               <Github size={28} />
             </Link>
-            <Link href="#" target="_blank" className="text-slate-500 transition-colors hover:text-primary">
+            <Link
+              href="https://www.linkedin.com/in/paul-dam-quang-thanh"
+              target="_blank"
+              className="text-slate-500 transition-colors hover:text-primary"
+            >
               <Linkedin size={28} />
             </Link>
           </div>
         </div>
       </div>
-      {/* Colonne de Droite : Cartes de compétences */}
-      <div className="mt-12 w-full max-w-lg md:mt-0">
+
+      {/* Colonne de Droite : Les SkillCards sont de retour */}
+      <div className="w-full max-w-lg">
         <div className="flex flex-col gap-4">
           {skills.map((skill) => (
             <SkillCard
@@ -56,6 +80,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+
     </section>
   )
 }

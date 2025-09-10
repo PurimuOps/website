@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { Providers } from './Providers'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '800'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Portfolio de Paul DAM QUANG THANH',
@@ -20,12 +24,13 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-background-light text-foreground-light dark:bg-background-dark dark:text-foreground-dark antialiased`}
+        className={`${jakarta.className} bg-background-light text-foreground-light dark:bg-background-dark dark:text-foreground-dark antialiased`}
       >
         <Providers>
           <div className="flex min-h-screen flex-col transition-colors duration-500">
             <Header />
-            <main className="container mx-auto flex flex-grow px-4 py-8">
+            {/* MODIFICATION SUR CETTE LIGNE */}
+            <main className="container mx-auto flex flex-grow flex-col items-center justify-center px-4">
               {children}
             </main>
             <Footer />
