@@ -69,8 +69,6 @@ export default function Header() {
           </div>
         </nav>
       </header>
-
-      {/* Le menu mobile (overlay) avec les couleurs corrigées */}
       <div
         className={`fixed inset-0 z-[100] transform bg-background-light text-foreground-light transition-transform duration-300 dark:bg-background-dark dark:text-foreground-dark md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'

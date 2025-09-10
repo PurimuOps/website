@@ -1,4 +1,3 @@
-// src/data/projects.ts
 export const projects = [
   {
     slug: 'preparation-certification-pca-gcp',
@@ -8,5 +7,4 @@ export const projects = [
     imageUrl: '/images/projects/gcp-pca-badge.png',
     repoUrl: '#',
   },
-  // Vous pouvez ajouter d'autres projets ici
 ]

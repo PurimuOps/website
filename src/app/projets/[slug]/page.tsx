@@ -1,11 +1,9 @@
-// src/app/projets/[slug]/page.tsx
 import { notFound } from 'next/navigation'
 import { projects } from '@/data/projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Github } from 'lucide-react'
 
-// Cette fonction est importante pour la performance en production
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -21,7 +19,6 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
   return (
     <article className="mx-auto max-w-3xl py-12">
-      {/* ... le reste de votre JSX pour la page de détail ... */}
       <h1 className="text-3xl font-bold">{project.title}</h1>
       <p className="mt-4">{project.summary}</p>
     </article>

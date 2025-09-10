@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Layers, Zap, Cloud, Github, Linkedin } from 'lucide-react'
 import SkillCard from '@/components/SkillCard'
 
-// On réintroduit les compétences
 const skills = [
   {
     icon: Cloud,
@@ -26,10 +25,8 @@ const skills = [
 
 export default function Home() {
   return (
-    // Le conteneur principal qui gère toute la mise en page
     <section className="flex h-full w-full flex-col items-center justify-center gap-12 md:flex-row">
       
-      {/* Colonne de Gauche : Texte de présentation */}
       <div className="w-full max-w-xl text-center md:text-left">
         <h1 className="text-4xl font-bold tracking-tight text-foreground-light dark:text-foreground-dark sm:text-5xl lg:text-6xl">
           Bonjour, je suis{' '}
@@ -67,7 +64,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Colonne de Droite : Les SkillCards sont de retour */}
       <div className="w-full max-w-lg">
         <div className="flex flex-col gap-4">
           {skills.map((skill) => (
